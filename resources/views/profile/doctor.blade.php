@@ -24,7 +24,7 @@
         <div class="card text-white bg-primary mb-3" style="max-width: 25rem;">
             <div class="card-header">Patient Profile</div>
             <div class="card-body">
-                <img src="{{asset('imgs/user-2.png')}}" class=" card-profile-img">
+                <img src="{{asset('imgs/dr-profile.png')}}" class=" card-profile-img">
                 <h5 class="card-title">Name</h5>
                 <p class="card-title">{{session('user')}}</p>
                 <h5 class="card-title">Age</h5>

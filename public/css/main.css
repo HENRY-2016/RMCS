@@ -2,7 +2,7 @@
 
 .app-body{background-color: #5C5470;}
 .main-body{margin-top: -20px;}
-.body-content{margin-left: 20px; margin-right: 20px; }
+.body-content{color:white; margin-left: 20px; margin-right: 20px; }
 .page-heading-div{margin-top: -50px;}
 .page-name{margin-top: 10px;float:left;}
 .total-badge{float:right;margin-top: 10px;}
@@ -115,6 +115,7 @@ opacity: 0.9;
     text-align: center;
     /* align-content: center; */
 }
+
 /* navigation  */
 #navigation-div{margin-top: 10px;}
 .main-navigation-ul {

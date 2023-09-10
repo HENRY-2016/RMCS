@@ -15,11 +15,18 @@
     </div>
 
     <div class="my-grid-item">
-        <input id="add-Service" class="text-input-fields" type="text"  name="Service" autocomplete="off" required="required" placeholder="Service">
+        <!-- <input id="add-Service" class="text-input-fields" type="text"  name="Service" autocomplete="off" required="required" placeholder="Service"> -->
+        <select class="form-select text-input-fields" onchange="getServiceAmount()" id="serviceNames" name="Service">
+            <option >Service Name</option>
+            @foreach($services as $name)
+            <option value="{{$name->Name}}">{{$name->Name}}</option>
+            @endforeach
+        </select>
+        
     </div>
 
     <div class="my-grid-item">
-        <input id="add-Fee" class="text-input-fields" type="number"  name="Fee" autocomplete="off" required="required" placeholder="Fee">
+        <input id="ServiceCost" class="text-input-fields" type="number"  name="Fee" autocomplete="off" required="required" placeholder="Fee">
     </div>
 
     <div class="my-grid-item">
@@ -32,4 +39,5 @@
         <button type="submit"   class="btn btn-primary">Submit</button>
     </div>
 </div>
+
 

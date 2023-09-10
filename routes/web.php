@@ -156,7 +156,8 @@ Route::get('/component/consultation', function ()
     if (session()->has('user')) {
         $data = ConsultationsModel::latest()->get ();
         $total = ConsultationsModel::count();
-        return view('components/consultation', compact('data','total')); 
+        $services = ServicesModel::get(['Name']);
+        return view('components/consultation', compact('data','total','services')); 
     }
     return view('welcome');
 });
@@ -167,8 +168,9 @@ Route::get('/component/consultation/bills', function ()
         $total = ConsultationsModel::count();
         $sum = ConsultationsModel::sum('Fee');
         $paid = ConsultationsModel::sum('Holder1');
+        $services = ServicesModel::get(['Name']);
         $balance = $sum - $paid;
-        return view('components/adminBills', compact('data','total','sum','paid','balance')); 
+        return view('components/adminBills', compact('data','total','sum','paid','balance','services')); 
     }
     return view('welcome');
 });
@@ -203,6 +205,7 @@ Route::get('/component/services', function ()
 
 
 
+Route::get('get/service/amount/{name}',[ConsultationsController::class,'getServiceAmount']);
 
 
 // resources

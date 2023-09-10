@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ConsultationsModel;
+use App\Models\ServicesModel;
 
 class ConsultationsController extends Controller
 {
@@ -16,8 +17,16 @@ class ConsultationsController extends Controller
     {
         $data = ConsultationsModel::latest()->get ();
         $total = ConsultationsModel::count();
-        return view('components/consultation', compact('data','total')); 
+        $services = ServicesModel::get(['Name']);
+
+        return view('components/consultation', compact('data','total','services')); 
         
+    }
+
+    public function getServiceAmount ($name)
+    {
+        $data = ServicesModel::where('Name',$name)->get(['Amount']);
+        return $data;
     }
 
     /**
@@ -46,7 +55,9 @@ class ConsultationsController extends Controller
         {
             $data = ConsultationsModel::where('UserId',$id) -> get();
             $total = ConsultationsModel::where('UserId',$id) ->count();
-            return view('components/consultation', compact('data','total')); 
+            $services = ServicesModel::get(['Name']);
+            // echo json_encode($services);
+            return view('components/consultation', compact('data','total','services')); 
         }
         if ($billId)
         {
@@ -54,7 +65,8 @@ class ConsultationsController extends Controller
             $paid = ConsultationsModel::where('UserId',$billId)->sum('Holder1');
             $total = ConsultationsModel::where('UserId',$billId) ->count();
             $data = ConsultationsModel::where('UserId',$billId) -> get();
-            return view('components/bill', compact('data','sum','total','paid')); 
+            $services = ServicesModel::get(['Name']);
+            return view('components/bill', compact('data','sum','total','paid','services')); 
         }
 
         if ($Admin)

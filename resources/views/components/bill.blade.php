@@ -334,7 +334,15 @@ $('#deleteModal').on('show.bs.modal', function(event){
     })
 });
 
-
+function getServiceAmount ()
+{
+    var name =  document.getElementById('serviceNames').value;
+    var RequestUrl = "{{url('/get/service/amount/')}}"+"/"+name;
+    $.get(RequestUrl, function (data) {
+        var Amount = data[0].Amount
+        $('#ServiceCost').val(Amount);
+    })
+}
 </script>
 </body>
 </html>

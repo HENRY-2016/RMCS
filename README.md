@@ -107,6 +107,5 @@ Git Hub
 ========
 1 => git add .
 2 => git commit -m 'Initial RMCS Uploads'
-2 => git branch -M main
-2 => git remote add origin https://github.com/HENRY-2016/RMCS.git
-2 => git push -u origin main
+3 => git branch -M main
+4 => git push -u origin main
