@@ -59,8 +59,8 @@ class PatientsController extends Controller
 
         );
         PatientsModel::create ($form_data);
-        return redirect('PatientsResource')
-            ->with('success','Data Added successfully.');
+        return redirect('/component/patients/register')
+            ->with('success','Account Was Successfully Created..Proceed To Log In.');
     }
 
     /**

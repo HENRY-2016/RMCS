@@ -151,6 +151,9 @@ Route::get('/component/patients', function ()
     return view('welcome');
 });
 
+Route::get('/component/patients/register', function () 
+{return view('components/pateints-register');});
+
 Route::get('/component/consultation', function () 
 {   
     if (session()->has('user')) {

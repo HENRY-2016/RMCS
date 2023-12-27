@@ -1,8 +1,8 @@
 
 
-.app-body{background-color: #5C5470;}
+.app-body{background-color: #d5d4d7;}
 .main-body{margin-top: -20px;}
-.body-content{color:white; margin-left: 20px; margin-right: 20px; }
+.body-content{ margin-left: 20px; margin-right: 20px; }
 .page-heading-div{margin-top: -50px;}
 .page-name{margin-top: 10px;float:left;}
 .total-badge{float:right;margin-top: 10px;}
@@ -18,6 +18,7 @@
 
 }
 .card-login{width: 370px; height: 480px;}
+.card-register{width: 750px; height: 800px;}
 .card-welcome{width: 370px; height: 500px;}
 .card-dashboard{height: 100%; margin-top: -95px;  background: #110e0e !important; color: white; }
 
@@ -71,7 +72,15 @@
     border-radius: 50px;
     border: 3px solid #0000FF;
 }
-.text-input-fields-pay,.text-input-fields:focus {border: 4px solid #0000FF;;}
+.text-input-fields-reg {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    border-radius: 50px;
+    border: 3px solid #0000FF;
+}
+.text-input-fields-pay,.text-input-fields-reg,.text-input-fields:focus {border: 4px solid #0000FF;;}
 
 .log-in-btn {
 background-color: #0000FF;
@@ -110,10 +119,7 @@ opacity: 0.9;
 /* Data tables */
 .text-center
 {
-    /* align-items: center; */
-    /* align-self: center; */
     text-align: center;
-    /* align-content: center; */
 }
 
 /* navigation  */
@@ -122,7 +128,6 @@ opacity: 0.9;
     list-style-type: none;
     height: 70px;
     overflow: hidden;
-    background: #fbfbfb;
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
 }

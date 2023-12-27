@@ -106,6 +106,6 @@ Create Default Admin
 Git Hub
 ========
 1 => git add .
-2 => git commit -m 'Initial RMCS Uploads'
+2 => git commit -m 'RMCS Auto Selection Updates'
 3 => git branch -M main
 4 => git push -u origin main

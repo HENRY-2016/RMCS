@@ -121,7 +121,7 @@
                             @if(session('userType')=='Admin')
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-id="{{ $row->id }}" data-bs-target="#payModal">Make Payment</button>
                             @else
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Padding Payment</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal">Pending Payment</button>
                             @endif
                         @endif
                     </td>
@@ -409,7 +409,7 @@ $(document).ready(function() {$('#table').DataTable();});
 $('#showModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/ConsultationsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/ConsultationsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#showModal').modal('show');
         var fee = parseInt(data.data.Fee);
@@ -430,7 +430,7 @@ $('#showModal').on('show.bs.modal', function(event){
 $('#editModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/ConsultationsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/ConsultationsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         var fee = parseInt(data.data.Fee);
         var Fee = fee.toLocaleString();
@@ -450,7 +450,7 @@ $('#editModal').on('show.bs.modal', function(event){
 $('#deleteModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/ConsultationsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/ConsultationsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#deleteModal').modal('show');
         $('#deleteId').val(data.data.id);
@@ -462,7 +462,7 @@ $('#deleteModal').on('show.bs.modal', function(event){
 $('#payModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/ConsultationsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/ConsultationsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         var fee = parseInt(data.data.Fee)
         var Fee = fee.toLocaleString();
@@ -476,7 +476,7 @@ $('#payModal').on('show.bs.modal', function(event){
 $('#feedBackModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/ConsultationsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/ConsultationsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         var fee = parseInt(data.data.Fee)
         var Fee = fee.toLocaleString();
@@ -491,7 +491,7 @@ $('#feedBackModal').on('show.bs.modal', function(event){
 $('#replyModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/ConsultationsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/ConsultationsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         var fee = parseInt(data.data.Fee)
         var Fee = fee.toLocaleString();
@@ -508,7 +508,7 @@ $('#replyModal').on('show.bs.modal', function(event){
 function getServiceAmount ()
 {
     var name =  document.getElementById('serviceNames').value;
-    var RequestUrl = "{{url('/get/service/amount/')}}"+"/"+name;
+    var RequestUrl = baseUrl +"{{url('/get/service/amount/')}}"+"/"+name;
     $.get(RequestUrl, function (data) {
         var Amount = data[0].Amount
         $('#ServiceCost').val(Amount);

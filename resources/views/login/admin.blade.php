@@ -44,7 +44,7 @@
             
       </form>
       <center>
-        <br><a  href="/" class="btn btn-primary">Main Menu</a><br>
+        <br><a  href="{{url('/')}}" class="btn btn-primary">Main Menu</a><br>
       </center>
     </div>
   </div>

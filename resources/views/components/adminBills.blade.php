@@ -285,7 +285,7 @@ $(document).ready(function() {$('#table').DataTable();});
 $('#showModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/ConsultationsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/ConsultationsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#showModal').modal('show');
         var fee = parseInt(data.data.Fee);
@@ -305,7 +305,7 @@ $('#showModal').on('show.bs.modal', function(event){
 $('#editModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/ConsultationsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/ConsultationsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         var fee = parseInt(data.data.Fee);
         var Fee = fee.toLocaleString();
@@ -325,7 +325,7 @@ $('#editModal').on('show.bs.modal', function(event){
 $('#deleteModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/ConsultationsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/ConsultationsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#deleteModal').modal('show');
         $('#deleteId').val(data.data.id);

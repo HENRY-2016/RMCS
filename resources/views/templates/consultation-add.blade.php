@@ -34,6 +34,7 @@
     </div>
 
     <input id="username" class="text-input-fields" type="hidden"  name="UserId" autocomplete="off" required="required" value="{{session('id')}}">
+    <input type="hidden"  name="store" autocomplete="off" required="required" value="store">
 
     <div class="my-grid-item">
         <button type="submit"   class="btn btn-primary">Submit</button>

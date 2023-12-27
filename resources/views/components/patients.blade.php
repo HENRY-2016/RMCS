@@ -21,7 +21,7 @@
         </div>
     </div>
     @if(session('userType')=='Admin')
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">Add New</button><br>
+        <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">Add New</button><br> -->
     @endif
 	
 
@@ -55,10 +55,6 @@
 						<th class="text-center">Contact</th>
 						<th class="text-center">Date</th>
 						<th class="text-center">Action1</th>
-                        @if(session('userType')=='Admin')
-						<th class="text-center">Action2</th>
-						<th class="text-center">Action3</th>
-                        @endif
 					</tr>
 				</thead>
 				@foreach($data as $row)
@@ -72,14 +68,7 @@
                     <td class="text-center">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-id="{{ $row->id }}" data-bs-target="#showModal">Details</button>
                     </td>
-                    @if(session('userType')=='Admin')
-                    <td class="text-center" >
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-id="{{ $row->id }}" data-bs-target="#editModal">Edit</button>
-                    </td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-id="{{ $row->id }}"  data-bs-target="#deleteModal">Delete</button>
-                    </td>
-                    @endif
+                    
 				</tr>
 				@endforeach
 			</table>
@@ -134,8 +123,8 @@
                     <p class="text-start" id="show-Area-id" ></p>
                     <b><p class="text-start">User Name</p></b>
                     <p class="text-start" id="show-UserName-id" ></p>
-                    <b><p class="text-start">Password</p></b>
-                    <p class="text-start" id="show-Password-id" ></p>
+                    <!-- <b><p class="text-start">Password</p></b>
+                    <p class="text-start" id="show-Password-id" ></p> -->
                 </div>
             
             <!-- Modal footer -->
@@ -213,7 +202,7 @@ $(document).ready(function() {$('#table').DataTable();});
 $('#showModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/PatientsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/PatientsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#showModal').modal('show');
         var Name = data.data.FName +" "+ " "+ data.data.LName;
@@ -230,7 +219,7 @@ $('#showModal').on('show.bs.modal', function(event){
 $('#editModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/PatientsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/PatientsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#editModal').modal('show');
         $('#editId').val(data.data.id);
@@ -247,7 +236,7 @@ $('#editModal').on('show.bs.modal', function(event){
 $('#deleteModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/PatientsResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/PatientsResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#deleteModal').modal('show');
         $('#deleteId').val(data.data.id);

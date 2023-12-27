@@ -25,13 +25,13 @@
 
         @endif
         @if(session('userType')=='Doctor')
-        <li class="btn btn-danger log-out-btn" ><a  style="text-decoration: none;" href="/users/doctor/logout" class="log-out-btn">Log Out</a></li>
+        <li class="btn btn-danger log-out-btn" ><a  style="text-decoration: none;" href="{{url('/users/doctor/logout')}}" class="log-out-btn">Log Out</a></li>
         @endif
         @if(session('userType')=='Patient')
-        <li class="btn btn-danger log-out-btn-patient" ><a  style="text-decoration: none;" href="/users/patients/logout" class="log-out-btn">Log Out</a></li>
+        <li class="btn btn-danger log-out-btn-patient" ><a  style="text-decoration: none;" href="{{url('/users/patients/logout')}}" class="log-out-btn">Log Out</a></li>
         @endif
         @if(session('userType')=='Admin')
-        <li class="btn btn-danger log-out-btn" ><a  style="text-decoration: none;" href="/users/admin/logout" class="log-out-btn">Log Out</a></li>
+        <li class="btn btn-danger log-out-btn" ><a  style="text-decoration: none;" href="{{url('/users/admin/logout')}}" class="log-out-btn">Log Out</a></li>
         @endif
     </ul>
 </div>

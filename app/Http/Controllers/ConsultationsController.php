@@ -51,6 +51,7 @@ class ConsultationsController extends Controller
         $id = $request->input('id');
         $billId = $request->input('billId');
         $Admin = $request->input('Admin');
+        $store = $request->input('store');
         if ($id)
         {
             $data = ConsultationsModel::where('UserId',$id) -> get();
@@ -77,7 +78,8 @@ class ConsultationsController extends Controller
             return view('components/consultations/bill', compact('data','sum')); 
         }
 
-
+        if ($store)
+        {
         $request -> validate ([
             'Name' => 'required',
             'Contact' => 'required',
@@ -116,9 +118,14 @@ class ConsultationsController extends Controller
             'Holder10' => "",
         );
         ConsultationsModel::create ($form_data);
-        return redirect('ConsultationsResource')
-        // return view('/components/consultations/add')
-            ->with('success','Data Added successfully.');
+        // return redirect('ConsultationsResource')
+        //     ->with('success','Data Added successfully.');
+        $data = ConsultationsModel::where('UserId',$request->UserId) -> get();
+        $total = ConsultationsModel::where('UserId',$request->UserId) ->count();
+        $services = ServicesModel::get(['Name']);
+        // echo json_encode($services);
+        return view('components/consultation', compact('data','total','services')); 
+        }
     }
 
     /**

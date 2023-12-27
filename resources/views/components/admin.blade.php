@@ -199,7 +199,7 @@ $(document).ready(function() {$('#table').DataTable();});
 $('#showModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/AdminResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/AdminResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#showModal').modal('show');
         var Name = data.data.FName +" "+ " "+ data.data.LName;
@@ -211,7 +211,7 @@ $('#showModal').on('show.bs.modal', function(event){
 $('#editModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/AdminResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/AdminResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#editModal').modal('show');
         $('#editId').val(data.data.id);
@@ -226,7 +226,7 @@ $('#editModal').on('show.bs.modal', function(event){
 $('#deleteModal').on('show.bs.modal', function(event){
     var target = jQuery(event.relatedTarget)
     var id = target.attr('data-bs-id');
-    var RequestUrl = "/AdminResource/"+id+"/edit";
+    var RequestUrl = baseUrl +"/AdminResource/"+id+"/edit";
     $.get(RequestUrl, function (data) {
         $('#deleteModal').modal('show');
         $('#deleteId').val(data.data.id);
